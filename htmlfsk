@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sonar Object Classifier</title>
+</head>
+<body>
+    <h1>Sonar Object Classifier</h1>
+    <form method="POST" action="/predict">
+        <h2>Enter 60 feature values:</h2>
+        {% for i in range(60) %}
+            <input type="text" name="feature_{{ i }}" required>
+        {% endfor %}
+        <br>
+        <input type="submit" value="Predict">
+    </form>
+    {% if result %}
+        <p><strong>Result:</strong> {{ result }}</p>
+    {% endif %}
+    {% if error %}
+        <p><strong>Error:</strong> {{ error }}</p>
+    {% endif %}
+</body>
+</html>
